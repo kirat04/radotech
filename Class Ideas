@@ -1,0 +1,7 @@
+Screen (uses qt)
+battery (part of controller?) (similar to sensor from A3)
+    if using a time system similar to A3, ticks down every time unit
+users
+hardware (uses qt?)
+application (uses qt)
+GUI controller
