@@ -9,10 +9,28 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Application.cpp \
+    Battery.cpp \
+    DataProcessor.cpp \
+    DeviceManager.cpp \
+    HardwareInterface.cpp \
+    MeasurementManager.cpp \
+    SafetyManager.cpp \
+    UserInterface.cpp \
+    UserManager.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    Application.h \
+    Battery.h \
+    DataProcessor.h \
+    DeviceManager.h \
+    HardwareInterface.h \
+    MeasurementManager.h \
+    SafetyManager.h \
+    UserInterface.h \
+    UserManager.h \
     mainwindow.h
 
 FORMS += \
