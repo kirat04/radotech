@@ -1,15 +1,17 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-}
+    : QMainWindow(parent) {
+    setWindowTitle("Profile Manager");
+    setMinimumSize(400, 420);
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
+    // Create central stacked widget
+    stackedWidget = new QStackedWidget(this);
+    setCentralWidget(stackedWidget);
 
+    // Initialize UserManager and ScreenManager
+    UserManager& userManager = UserManager::getInstance();
+    ScreenManager& screenManager = ScreenManager::getInstance(stackedWidget);
+
+}
