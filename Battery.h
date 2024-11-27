@@ -17,6 +17,7 @@ private:
     SystemManager* systemManager;
     UserInterface* userInterface;
     DeviceManager* deviceManager;
+    int currentLevel
 };
 
 #endif // BATTERY_H
