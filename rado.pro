@@ -12,6 +12,7 @@ SOURCES += \
     editform.cpp \
     homescreen.cpp \
     loginform.cpp \
+    measureManager.cpp \
     profileform.cpp \
     screenmanager.cpp \
     usermanager.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     loginform.h \
     profileform.h \
     screenmanager.h \
+    measurementManager.h \
     usermanager.h \
     userprofile.h \
     mainwindow.h
