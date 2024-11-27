@@ -7,7 +7,6 @@
 
 class UserManager {
 public:
-    // Singleton pattern for global access
     static UserManager& getInstance();
 
     // User Profile Management
@@ -34,9 +33,9 @@ public:
     bool isMaxProfileReached() const;
 
 private:
-    UserManager(); // Private constructor for Singleton
-    UserManager(const UserManager&) = delete; // Prevent copying
-    UserManager& operator=(const UserManager&) = delete; // Prevent assignment
+    UserManager();
+    UserManager(const UserManager&) = delete; 
+    UserManager& operator=(const UserManager&) = delete; 
 
     static const int MAX_PROFILES = 5;
     QVector<UserProfile> profiles;
