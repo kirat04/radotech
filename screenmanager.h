@@ -43,7 +43,6 @@ private:
     QStackedWidget* stackedWidget;
     UserManager& userManager;
 
-    // Screen Indices (Consider using an enum for better readability)
     enum ScreenIndex {
         FIRST_SCREEN = 0,
         CREATE_PROFILE_SCREEN,
