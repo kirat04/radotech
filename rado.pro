@@ -11,26 +11,39 @@ CONFIG += c++11
 SOURCES += \
     Application.cpp \
     Battery.cpp \
+    editform.cpp \
     DataProcessor.cpp \
     DeviceManager.cpp \
     HardwareInterface.cpp \
+    homescreen.cpp \
+    loginform.cpp \
     MeasurementManager.cpp \
+    profileform.cpp \
     SafetyManager.cpp \
+    screenmanager.cpp \
     UserInterface.cpp \
     UserManager.cpp \
+    usermanager.cpp \
     main.cpp \
+    serprofile.cpp\
     mainwindow.cpp
 
 HEADERS += \
     Application.h \
     Battery.h \
+    editform.h \
     DataProcessor.h \
     DeviceManager.h \
     HardwareInterface.h \
+    homescreen.h \
     MeasurementManager.h \
+    profileform.h \
     SafetyManager.h \
+    screenmanager.h \
     UserInterface.h \
     UserManager.h \
+    usermanager.h \
+    serprofile.h \
     mainwindow.h
 
 FORMS += \
