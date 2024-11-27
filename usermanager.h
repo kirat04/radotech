@@ -19,6 +19,8 @@ public:
     void setCurrentUser(int index);
     void clearCurrentUser();
 
+
+
     // Profile List Queries
     QVector<UserProfile>& getAllProfiles();
     int getProfileCount() const;
