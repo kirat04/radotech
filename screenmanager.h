@@ -9,6 +9,7 @@
 #include "editform.h"
 #include "profileform.h"
 
+
 class ScreenManager : public QObject {
     Q_OBJECT
 
