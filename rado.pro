@@ -15,6 +15,7 @@ SOURCES += \
     homescreen.cpp \
     loginform.cpp \
     measurementManager.cpp \
+    measurementform.cpp \
     profileform.cpp \
     screenmanager.cpp \
     usermanager.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     editform.h \
     homescreen.h \
     loginform.h \
+    measurementform.h \
     profileform.h \
     screenmanager.h \
     measurementManager.h \
@@ -42,3 +44,5 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES +=

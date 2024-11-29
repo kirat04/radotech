@@ -4,6 +4,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent) {
     setWindowTitle("Profile Manager");
-    setMinimumSize(400, 420);
+    setMinimumSize(450, 460);
 
 }

@@ -8,7 +8,7 @@
 #include "loginform.h"
 #include "editform.h"
 #include "profileform.h"
-
+#include "measurementform.h"
 
 class ScreenManager : public QObject {
     Q_OBJECT
@@ -23,6 +23,7 @@ public:
     void showLoginScreen(int profileIndex);
     void showLoginScreenSwap(int profileIndex);
     void showEditScreen(int profileIndex);
+    void showMeasureScreen();
 
     // Screen Setup Methods
     void initializeScreens();

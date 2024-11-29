@@ -111,7 +111,8 @@ HomeScreen* ScreenManager::setUpHomeScreem() {
         if(!userManager.hasCurrentUser()){
             QMessageBox::warning(nullptr, "Error", "You are not logged in to a profile!");
         } else {
-            QMessageBox::information(nullptr, "Measure Now", "Measurement feature coming soon!");
+            showMeasureScreen();
+//            QMessageBox::information(nullptr, "Measure Now", "Measurement feature coming soon!");
         }
     });
 
@@ -223,4 +224,18 @@ void ScreenManager::showEditScreen(int profileIndex) {
             stackedWidget->setCurrentIndex(FIRST_SCREEN);
         });
     }
+}
+
+void ScreenManager::showMeasureScreen(){
+    MeasurementForm* measureScreen = new MeasurementForm();
+    stackedWidget->addWidget(measureScreen);
+    stackedWidget->setCurrentWidget(measureScreen);
+
+    // Connect theexit and next signals
+    connect(measureScreen, &MeasurementForm::exitClicked, [this]() {
+        refreshHomeScreen();
+        stackedWidget->setCurrentIndex(HOME_SCREEN);
+    });
+
+    connect(measureScreen, &MeasurementForm::nextClicked, measureScreen, &MeasurementForm::handleNext);
 }
