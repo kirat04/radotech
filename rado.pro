@@ -14,7 +14,7 @@ SOURCES += \
     editform.cpp \
     homescreen.cpp \
     loginform.cpp \
-    measureManager.cpp \
+    measurementManager.cpp \
     profileform.cpp \
     screenmanager.cpp \
     usermanager.cpp \
