@@ -11,19 +11,19 @@ MeasurementForm::MeasurementForm(QWidget *parent)
     : QWidget(parent) {
     stepNumber = 0;
     measurementManager = new MeasurementManager();
-    imagePaths.push_back("../RadoTech/radotech/images/testt.jpeg");
-    imagePaths.push_back("../RadoTech/radotech/images/point1.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point2.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point3.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point4.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point5.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point6.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point7.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point8.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point9.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point10.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point11.png");
-    imagePaths.push_back("../RadoTech/radotech/images/point12.png");
+    imagePaths.push_back("../radotech/images/testt.jpeg");
+    imagePaths.push_back("../radotech/images/point1.png");
+    imagePaths.push_back("../radotech/images/point2.png");
+    imagePaths.push_back("../radotech/images/point3.png");
+    imagePaths.push_back("../radotech/images/point4.png");
+    imagePaths.push_back("../radotech/images/point5.png");
+    imagePaths.push_back("../radotech/images/point6.png");
+    imagePaths.push_back("../radotech/images/point7.png");
+    imagePaths.push_back("../radotech/images/point8.png");
+    imagePaths.push_back("../radotech/images/point9.png");
+    imagePaths.push_back("../radotech/images/point10.png");
+    imagePaths.push_back("../radotech/images/point11.png");
+    imagePaths.push_back("../radotech/images/point12.png");
 
 
 
@@ -32,7 +32,7 @@ MeasurementForm::MeasurementForm(QWidget *parent)
     QHBoxLayout* picLayout = new QHBoxLayout();
 
     picture = new QLabel();
-    picture->setText("*add instructions*");
+    picture->setText("Please press the device to the displayed point to get a reading.\nWhen done, press 'Next' to display the next point.\nPress 'Next' to start");
 
     picLayout->addWidget(picture);
     QHBoxLayout* btnLayout = new QHBoxLayout();
