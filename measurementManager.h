@@ -7,7 +7,7 @@
 #include "QObject"
 #include <QVector>
 #include <QObject>
-#include "storeageManager.h"
+#include "storageManager.h"
 
 class MeasurementManager
 {
@@ -33,7 +33,7 @@ private:
    int lowerWindow = 5;
    int currMeasure;
    QVector<int> measurements;
-   StorageManager* storageManger;
+   StorageManager* storageManager;
 };
 
 #endif // MEASUREMENTMANAGER_H
