@@ -18,6 +18,7 @@ SOURCES += \
     measurementform.cpp \
     profileform.cpp \
     screenmanager.cpp \
+    storageManager.cpp \
     usermanager.cpp \
     main.cpp \
     userprofile.cpp\
@@ -33,6 +34,7 @@ HEADERS += \
     profileform.h \
     screenmanager.h \
     measurementManager.h \
+    storageManager.h \
     usermanager.h \
     userprofile.h \
     mainwindow.h
