@@ -15,8 +15,15 @@ public slots:
    bool validateMeasurement(int measure);
 
 public:
+   MeasurementManager(int lower, int upper);
    int getMeasurement();
    QVector<int> getAllMeasurements();
+   double calculateAverage() const;
+   void setMeasurementRange(int lower, int upper);
+   QVector<int> getMeasurementsAbove(int threshold) const;
+   QVector<int> getMeasurementsBelow(int threshold) const;
+   QVector<int> getMeasurementsInRange(int lower, int upper) const;
+   void resetMeasurements();
 
 private:
    int upperWindow = 160;
