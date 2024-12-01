@@ -62,6 +62,7 @@ picture->setPixmap(image);
     else if(stepNumber > 12){
         picture->clear();
     picture->setText("Test Completed");
+        measurementManager->storeMeasurements();
 
     }
     else{
