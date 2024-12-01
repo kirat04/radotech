@@ -9,6 +9,7 @@ public:
     Battery();
     void deplete(int amount);
     int getCurrentAmount();
+    bool isLowPower();
 private:
     int percentCharged;
     bool lowPowerState;

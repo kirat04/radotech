@@ -25,7 +25,7 @@ void StorageManager::saveData(const QJsonObject &data, const QString &fileName) 
 }
 
 void StorageManager::saveUserProfile(const UserProfile &user, const QString &fileName) {
-    QJsonObject userJson = user.toJson(); // Convert the user object to JSON
+    QJsonObject userJson = user.toJson();
     QJsonDocument doc(userJson);
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly)) {
@@ -35,4 +35,41 @@ void StorageManager::saveUserProfile(const UserProfile &user, const QString &fil
     file.write(doc.toJson());
     file.close();
     qDebug() << "User profile saved to" << fileName;
+}
+
+
+QJsonObject StorageManager::loadMeasurement(const QString &fileName) const {
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "Could not open" << fileName << "for reading";
+        return QJsonObject();
+    }
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+    file.close();
+    return doc.object();
+}
+
+QJsonObject StorageManager::loadData(const QString &fileName) const {
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "Could not open" << fileName << "for reading";
+        return QJsonObject();
+    }
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+    file.close();
+    return doc.object();
+}
+
+UserProfile StorageManager::loadUserProfile(const QString &fileName) const {
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qDebug() << "Could not open" << fileName << "for reading";
+        return UserProfile();
+    }
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+    file.close();
+
+    UserProfile user;
+    user.fromJson(doc.object());
+    return user;
 }

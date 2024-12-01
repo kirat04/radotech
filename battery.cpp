@@ -23,3 +23,9 @@ int Battery::getCurrentAmount(){
     return percentCharged;
 }
 
+
+bool Battery::isLowPower()
+{
+    return (percentCharged < 20);
+}
+
