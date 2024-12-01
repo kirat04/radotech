@@ -10,7 +10,7 @@
 MeasurementForm::MeasurementForm(QWidget *parent)
     : QWidget(parent) {
     stepNumber = 0;
-    measurementManager = new MeasurementManager();
+    measurementManager = new MeasurementManager(5, 160);
     imagePaths.push_back("../radotech/images/testt.jpeg");
     imagePaths.push_back("../radotech/images/point1.png");
     imagePaths.push_back("../radotech/images/point2.png");
