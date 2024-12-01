@@ -12,3 +12,21 @@ Application::Application(MainWindow* w)
 
 
 }
+
+int Application::getCurrentScreen() const {
+    return stackedWidget->currentIndex();
+}
+
+void Application::addScreen(QWidget* screen) {
+    stackedWidget->addWidget(screen);
+}
+
+void Application::removeScreen(int screenIndex) {
+    QWidget* screen = stackedWidget->widget(screenIndex);
+    if (screen) {
+        stackedWidget->removeWidget(screen);
+        delete screen;
+    } else {
+        qDebug() << "No screen at index:" << screenIndex;
+    }
+}

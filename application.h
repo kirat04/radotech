@@ -10,6 +10,9 @@ class Application
 {
 public:
    Application(MainWindow* w);
+   int getCurrentScreen() const;
+   void addScreen(QWidget* screen);
+   void removeScreen(int screenIndex);
 
 private:
     QStackedWidget* stackedWidget;
