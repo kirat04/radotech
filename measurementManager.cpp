@@ -84,6 +84,18 @@ void MeasurementManager::resetMeasurements() {
     qInfo("Measurements reset.");
 }
 
+void MeasurementManager::storeMeasurements() {
+    QJsonObject measurementStore;
+    QString key;
+    int reading = 1;
+    for (int measure: measurements) {
+        key.setNum(reading);
+        key.push_front("reading ");
+        measurementStore.insert(key, measure);
+        reading++;
+    }
+    storageManager->saveMeasurement(measurementStore, "testFile");
+}
 
 
 
