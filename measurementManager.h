@@ -6,6 +6,8 @@
 #include "random"
 #include "QObject"
 #include <QVector>
+#include <QObject>
+#include "storeageManager.h"
 
 class MeasurementManager
 {
@@ -24,12 +26,14 @@ public:
    QVector<int> getMeasurementsBelow(int threshold) const;
    QVector<int> getMeasurementsInRange(int lower, int upper) const;
    void resetMeasurements();
+   void storeMeasurements();
 
 private:
    int upperWindow = 160;
    int lowerWindow = 5;
    int currMeasure;
    QVector<int> measurements;
+   StorageManager* storageManger;
 };
 
 #endif // MEASUREMENTMANAGER_H
