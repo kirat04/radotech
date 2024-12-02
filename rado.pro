@@ -13,6 +13,7 @@ SOURCES += \
     battery.cpp \
     editform.cpp \
     homescreen.cpp \
+    healthmetricVisualization.cpp \
     loginform.cpp \
     measurementManager.cpp \
     measurementform.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     battery.h \
     editform.h \
     homescreen.h \
+    healthmetricVisualization.h \
     loginform.h \
     measurementform.h \
     profileform.h \
