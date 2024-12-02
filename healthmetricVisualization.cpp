@@ -92,10 +92,10 @@ void HealthMetricVisualization::drawBarGraph(QPainter& painter) {
 
         // Determine the label
         QString label;
-        if (i % 2 == 0) {
-            label = QString("H%1").arg(i / 2 + 1);  // H1, H2, ...
+        if (i < 6) {
+            label = QString("H%1").arg(i + 1);  // H1, H2, ...
         } else {
-            label = QString("F%1").arg(i / 2 + 1);  // F1, F2, ...
+            label = QString("F%1").arg(i - 5);  // F1, F2, ...
         }
 
         // Draw the label below the bar
