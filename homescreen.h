@@ -19,6 +19,7 @@ signals:
     void LogOutProfileClicked(int index);
     void measureNowClicked();
     void historyClicked();
+    void specialistClicked();
     void createProfClicked();
 
 private:
