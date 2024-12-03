@@ -124,6 +124,10 @@ HomeScreen* ScreenManager::setUpHomeScreem() {
         }
     });
 
+    connect(homeScreen, &HomeScreen::specialistClicked, [this]() {
+       QMessageBox::information(nullptr, "Specialist Recommendations", "Currently we have no recommendations");
+    });
+
     connect(homeScreen, &HomeScreen::createProfClicked, [this]() {
         if(!userManager.isMaxProfileReached()){
             cleanupStackedWidget(CREATE_PROFILE_SCREEN + 1);
