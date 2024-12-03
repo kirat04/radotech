@@ -78,25 +78,41 @@ QVector<int> MeasurementManager::getMeasurementsInRange(int lower, int upper) co
     return result;
 }
 
-void MeasurementManager::resetMeasurements() {
-    measurements.clear();
-    currMeasure = 0;
-    qInfo("Measurements reset.");
-}
-
 void MeasurementManager::storeMeasurements() {
     QJsonObject measurementStore;
-    QString key;
-    int reading = 1;
-    for (int measure: measurements) {
-        key.setNum(reading);
-        key.push_front("reading ");
-        measurementStore.insert(key, measure);
-        reading++;
+    QJsonArray measurementArray;
+
+    UserManager& userManager = UserManager::getInstance();
+    UserProfile* currentUser = userManager.getCurrentUser();
+    if (currentUser) {
+        measurementStore["username"] = currentUser->getFullName();
     }
-    storageManager->saveMeasurement(measurementStore, "testFile");
+
+    // Store metadata
+    measurementStore["timestamp"] = QDateTime::currentDateTime().toString(Qt::ISODate);
+    measurementStore["total_readings"] = measurements.size();
+
+    // Store measurements as a JSON array for easier parsing
+    for (int measure : measurements) {
+        measurementArray.append(measure);
+    }
+
+    measurementStore["readings"] = measurementArray;
+
+    // Optional: Add statistical summary
+    measurementStore["avg"] = calculateAverage();
+    measurementStore["max"] = *std::max_element(measurements.begin(), measurements.end());
+    measurementStore["min"] = *std::min_element(measurements.begin(), measurements.end());
+
+    // Generate unique filename based on timestamp
+    QString filename = QString("measurement_%1.json").arg(QDateTime::currentDateTime().toString("yyyy-MM-ddThh:mm:ss"));
+
+    storageManager->saveMeasurement(measurementStore, filename);
 }
 
+QList<QJsonObject> MeasurementManager::getStoredMeasurements() {
+    return storageManager->loadAllMeasurements();
+}
 
 
 
