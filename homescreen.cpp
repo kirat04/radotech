@@ -19,9 +19,11 @@ HomeScreen::HomeScreen(const QVector<UserProfile> &profiles, QWidget *parent)
 
     connect(measureNowBtn, &QPushButton::clicked, this, &HomeScreen::measureNowClicked);
     connect(historyBtn, &QPushButton::clicked, this, &HomeScreen::historyClicked);
+    connect(specialistBtn, &QPushButton::clicked,  this,  &HomeScreen::specialistClicked);
 
     mainLayout->addWidget(measureNowBtn);
     mainLayout->addWidget(historyBtn);
+    mainLayout->addWidget(specialistBtn);
 
     updateProfileList(profiles);
 
