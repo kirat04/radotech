@@ -7,6 +7,7 @@
 #include "homescreen.h"
 #include "loginform.h"
 #include "editform.h"
+#include "historyform.h"
 #include "profileform.h"
 #include "measurementform.h"
 
@@ -24,6 +25,7 @@ public:
     void showLoginScreenSwap(int profileIndex);
     void showEditScreen(int profileIndex);
     void showMeasureScreen();
+    void showHistoryScreen();
 
     // Screen Setup Methods
     void initializeScreens();
