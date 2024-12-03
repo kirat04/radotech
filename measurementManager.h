@@ -1,12 +1,12 @@
 #ifndef MEASUREMENTMANAGER_H
 #define MEASUREMENTMANAGER_H
 
-
-
 #include "random"
 #include "QObject"
 #include <QVector>
 #include <QObject>
+#include <QJsonArray>
+#include "usermanager.h"
 #include "storageManager.h"
 
 class MeasurementManager
@@ -25,6 +25,7 @@ public:
    QVector<int> getMeasurementsAbove(int threshold) const;
    QVector<int> getMeasurementsBelow(int threshold) const;
    QVector<int> getMeasurementsInRange(int lower, int upper) const;
+   QList<QJsonObject> getStoredMeasurements();
    void resetMeasurements();
    void storeMeasurements();
 
