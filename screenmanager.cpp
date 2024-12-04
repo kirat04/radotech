@@ -17,6 +17,13 @@ ScreenManager::ScreenManager(QStackedWidget* stackedWidget)
             QMessageBox::warning(nullptr, "Error", "low power mode: less than 20% remaining");
 
     });
+
+    connect(battery, &Battery::sendShutdown, this, [this]() {
+       showHomeScreen();
+       QMessageBox::warning(nullptr, "Error", "Battery Too Low, Shutting Down");
+
+    });
+
     if (stackedWidget) {
         initializeScreens();
     }
@@ -118,6 +125,8 @@ HomeScreen* ScreenManager::setUpHomeScreem() {
     connect(homeScreen, &HomeScreen::measureNowClicked, [this]() {
         if(!userManager.hasCurrentUser()){
             QMessageBox::warning(nullptr, "Error", "You are not logged in to a profile!");
+        } else if (battery->isCritical()) {
+            QMessageBox::warning(nullptr, "Error", "Battery needs charging!");
         } else {
             showMeasureScreen();
 //            QMessageBox::information(nullptr, "Measure Now", "Measurement feature coming soon!");
