@@ -37,3 +37,6 @@ bool Battery::isCritical()
     return (percentCharged <= 5);
 }
 
+void Battery::depleteOne(){
+    this->deplete(1);
+}

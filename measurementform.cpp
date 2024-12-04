@@ -36,7 +36,7 @@ battery->setValue(100);
     mainLayout = new QVBoxLayout(this);
 
     // Instruction Label
-    QLabel *instructionLabel = new QLabel("Measurement Instructions:\n"
+    QLabel *instructionLabel = new QLabel("\n\nMeasurement Instructions:\n"
                                    "1. Press the device to the specified point\n"
                                    "2. Keep device in contact until beep\n"
                                    "3. Lift device off skin\n"

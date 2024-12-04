@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include <QMessageBox>
 #include <QProgressBar>
+#include <QTimer>
 ScreenManager& ScreenManager::getInstance(QStackedWidget* stackedWidget) {
     static ScreenManager instance(stackedWidget);
     return instance;
@@ -17,6 +18,13 @@ ScreenManager::ScreenManager(QStackedWidget* stackedWidget)
             QMessageBox::warning(nullptr, "Error", "low power mode: less than 20% remaining");
 
     });
+
+//passively depletes the batterry to rrun the device (currently set at 1% everyy 10 seconds
+    QTimer *timer = new QTimer();
+
+    connect(timer, &QTimer::timeout,battery, &Battery::depleteOne);
+
+    timer->start(10000);
 
     connect(battery, &Battery::sendShutdown, this, [this]() {
        showHomeScreen();

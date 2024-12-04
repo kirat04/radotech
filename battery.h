@@ -13,6 +13,7 @@ int getCurrentAmount();
     bool isCritical();
 public slots:
         void deplete(int amount);
+        void depleteOne();
 private:
     int percentCharged;
     bool lowPowerState;
