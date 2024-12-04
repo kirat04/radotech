@@ -21,11 +21,13 @@ HomeScreen::HomeScreen(const QVector<UserProfile> &profiles, QWidget *parent)
 
     QPushButton *measureNowBtn = new QPushButton("Measure Now", this);
     QPushButton *historyBtn = new QPushButton("History", this);
-QPushButton *specialistBtn = new QPushButton("Specialist Reccomendation", this);
+    QPushButton *specialistBtn = new QPushButton("Specialist Reccomendation", this);
+    QPushButton *chargeBtn = new QPushButton("Charge Battery", this);
 
     connect(measureNowBtn, &QPushButton::clicked, this, &HomeScreen::measureNowClicked);
     connect(historyBtn, &QPushButton::clicked, this, &HomeScreen::historyClicked);
     connect(specialistBtn, &QPushButton::clicked,  this,  &HomeScreen::specialistClicked);
+    connect(chargeBtn, &QPushButton::clicked,  this,  &HomeScreen::chargeClicked);
 
     mainLayout->addWidget(measureNowBtn);
     mainLayout->addWidget(historyBtn);
@@ -33,6 +35,8 @@ QPushButton *specialistBtn = new QPushButton("Specialist Reccomendation", this);
 
 
     updateProfileList(profiles);
+
+    mainLayout->addWidget(chargeBtn);
 
 }
 
