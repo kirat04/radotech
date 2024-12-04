@@ -145,6 +145,11 @@ HomeScreen* ScreenManager::setUpHomeScreem() {
         }
     });
 
+    connect(homeScreen, &HomeScreen::chargeClicked, [this]() {
+       battery->deplete(-100 + battery->getCurrentAmount());
+       QMessageBox::information(nullptr, "Battery", "Battery Recharged!");
+    });
+
     return homeScreen;
 }
 
