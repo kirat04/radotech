@@ -10,6 +10,7 @@ public:
 
 int getCurrentAmount();
     bool isLowPower();
+    bool isCritical();
 public slots:
         void deplete(int amount);
 private:
@@ -18,6 +19,7 @@ private:
 signals:
     void sendLowPower();
     int sendCurrentAmount(int amount);
+    void sendShutdown();
 
 
 };
