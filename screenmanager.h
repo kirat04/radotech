@@ -10,7 +10,7 @@
 #include "historyform.h"
 #include "profileform.h"
 #include "measurementform.h"
-
+#include "battery.h"
 class ScreenManager : public QObject {
     Q_OBJECT
 
@@ -46,6 +46,7 @@ private:
 
     QStackedWidget* stackedWidget;
     UserManager& userManager;
+    Battery* battery;
 
     enum ScreenIndex {
         FIRST_SCREEN = 0,

@@ -16,7 +16,7 @@ void Battery::deplete(int amount){
         lowPowerState = true;
         emit sendLowPower();
     }
-
+emit sendCurrentAmount(percentCharged);
 }
 
 int Battery::getCurrentAmount(){

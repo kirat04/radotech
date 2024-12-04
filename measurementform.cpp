@@ -7,11 +7,14 @@
 #include<QPixmap>
 #include<QTimer>
 #include <QDir>
-
+#include  <QProgressBar>
 
 //Need to add innstructions
 MeasurementForm::MeasurementForm(QWidget *parent)
     : QWidget(parent) {
+
+battery = new QProgressBar(this);
+battery->setValue(100);
     stepNumber = 0;
     isDeviceContacting = false;
     measurementManager = new MeasurementManager(5, 160);
@@ -138,6 +141,7 @@ void MeasurementForm::simulateDeviceContact() {
     if (!isDeviceContacting) {
         QTimer::singleShot(1000, this, &MeasurementForm::startDeviceContact);
         QTimer::singleShot(3000, this, &MeasurementForm::endDeviceContact);
+        emit depleteBattery(5);
     }
 }
 
@@ -170,4 +174,9 @@ void MeasurementForm::showMeasurementVisualization() {
     // Resize and show dialog
     visualizationDialog->resize(600, 400);
     visualizationDialog->show();
+}
+
+void MeasurementForm::setBattery(int amount){
+
+    battery->setValue(amount);
 }

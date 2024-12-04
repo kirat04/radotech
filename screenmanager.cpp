@@ -3,7 +3,7 @@
 #include <QPushButton>
 #include <QMessageBox>
 #include <QMessageBox>
-
+#include <QProgressBar>
 ScreenManager& ScreenManager::getInstance(QStackedWidget* stackedWidget) {
     static ScreenManager instance(stackedWidget);
     return instance;
@@ -11,6 +11,12 @@ ScreenManager& ScreenManager::getInstance(QStackedWidget* stackedWidget) {
 
 ScreenManager::ScreenManager(QStackedWidget* stackedWidget)
     : stackedWidget(stackedWidget), userManager(UserManager::getInstance()) {
+    battery = new Battery();
+    connect(battery, &Battery::sendLowPower, this, [this]() {
+
+            QMessageBox::warning(nullptr, "Error", "low power mode: less than 20% remaining");
+
+    });
     if (stackedWidget) {
         initializeScreens();
     }
@@ -106,6 +112,8 @@ HomeScreen* ScreenManager::setUpHomeScreem() {
     connect(homeScreen, &HomeScreen::swapProfileClicked, this, &ScreenManager::showLoginScreenSwap);
     connect(homeScreen, &HomeScreen::createProfClicked, this, &ScreenManager::showCreateProfileScreen);
     connect(homeScreen, &HomeScreen::LogOutProfileClicked, [this] () {userManager.clearCurrentUser(); refreshHomeScreen(); stackedWidget->setCurrentIndex(FIRST_SCREEN); });
+    connect(battery,&Battery::sendCurrentAmount, homeScreen, &HomeScreen::setBattery );
+    emit battery->sendCurrentAmount(battery->getCurrentAmount());
 
     connect(homeScreen, &HomeScreen::measureNowClicked, [this]() {
         if(!userManager.hasCurrentUser()){
@@ -243,6 +251,9 @@ void ScreenManager::showMeasureScreen(){
     });
 
     connect(measureScreen, &MeasurementForm::nextClicked, measureScreen, &MeasurementForm::handleNext);
+    connect(battery,&Battery::sendCurrentAmount, measureScreen, &MeasurementForm::setBattery );
+    connect(measureScreen, &MeasurementForm::depleteBattery, battery,&Battery::deplete);
+    emit battery->sendCurrentAmount(battery->getCurrentAmount());
 }
 
 void ScreenManager::showHistoryScreen(){

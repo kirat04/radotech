@@ -13,6 +13,7 @@
 #include  <QString>
 #include "measurementManager.h"
 #include "healthmetricVisualization.h"
+#include  <QProgressBar>
 
 class MeasurementForm : public QWidget
 {
@@ -27,6 +28,9 @@ signals:
     void measurementCompleted();
     void nextClicked();
     void exitClicked();
+    void depleteBattery(int amount);
+public slots:
+   void setBattery(int level);
 
 private:
     QVBoxLayout *mainLayout;
@@ -41,7 +45,7 @@ private:
    QPushButton* viewVisualizationBtn;
    QPushButton *nextBtn;
    QPushButton *exitBtn;
-
+   QProgressBar *battery;
    void showMeasurementVisualization();
    void startDeviceContact();
    void endDeviceContact();

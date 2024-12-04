@@ -1,7 +1,7 @@
 #include "loginform.h"
 #include <QFormLayout>
 #include <QMessageBox>
-
+#include  <QProgressBar>
 LoginForm::LoginForm(const UserProfile &prof, QWidget *parent)
     : QWidget(parent), profile(prof) {
 

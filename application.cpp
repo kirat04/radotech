@@ -8,6 +8,7 @@ Application::Application(MainWindow* w)
 
    // Initialize UserManager and ScreenManager
    UserManager& userManager = UserManager::getInstance();
+
    ScreenManager& screenManager = ScreenManager::getInstance(stackedWidget);
 
 

@@ -6,15 +6,19 @@ class Battery : public QObject
 {
     Q_OBJECT
 public:
-    Battery();
-    void deplete(int amount);
-    int getCurrentAmount();
+     Battery();
+
+int getCurrentAmount();
     bool isLowPower();
+public slots:
+        void deplete(int amount);
 private:
     int percentCharged;
     bool lowPowerState;
 signals:
     void sendLowPower();
+    int sendCurrentAmount(int amount);
+
 
 };
 

@@ -5,7 +5,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include "userprofile.h"
-
+#include  <QProgressBar>
 class HomeScreen : public QWidget {
     Q_OBJECT
 
@@ -22,8 +22,12 @@ signals:
     void specialistClicked();
     void createProfClicked();
 
+public slots:
+   void setBattery(int level);
+
 private:
     QVBoxLayout *mainLayout;
+    QProgressBar *battery;
 };
 
 #endif

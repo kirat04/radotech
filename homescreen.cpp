@@ -2,8 +2,13 @@
 #include <QLabel>
 #include <QGridLayout>
 
+
 HomeScreen::HomeScreen(const QVector<UserProfile> &profiles, QWidget *parent)
     : QWidget(parent) {
+
+   battery = new QProgressBar(this);
+    battery->setValue(100);
+
     mainLayout = new QVBoxLayout(this);
 
     for (int i = 0; i < profiles.size(); ++i) {
@@ -16,6 +21,7 @@ HomeScreen::HomeScreen(const QVector<UserProfile> &profiles, QWidget *parent)
 
     QPushButton *measureNowBtn = new QPushButton("Measure Now", this);
     QPushButton *historyBtn = new QPushButton("History", this);
+QPushButton *specialistBtn = new QPushButton("Specialist Reccomendation", this);
 
     connect(measureNowBtn, &QPushButton::clicked, this, &HomeScreen::measureNowClicked);
     connect(historyBtn, &QPushButton::clicked, this, &HomeScreen::historyClicked);
@@ -24,6 +30,7 @@ HomeScreen::HomeScreen(const QVector<UserProfile> &profiles, QWidget *parent)
     mainLayout->addWidget(measureNowBtn);
     mainLayout->addWidget(historyBtn);
     mainLayout->addWidget(specialistBtn);
+
 
     updateProfileList(profiles);
 
@@ -66,4 +73,8 @@ void HomeScreen::updateProfileList(const QVector<UserProfile> &profiles) {
     connect(createBtn, &QPushButton::clicked, this, &HomeScreen::createProfClicked);
 
     mainLayout->addWidget(profileWidget);
+}
+void HomeScreen::setBattery(int amount){
+
+    battery->setValue(amount);
 }

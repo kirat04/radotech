@@ -4,9 +4,11 @@
 #include <QLabel>
 #include <QButtonGroup>
 #include <QMessageBox>
-
+#include  <QProgressBar>
 
 ProfileForm::ProfileForm(QWidget *parent) : QWidget(parent) {
+
+
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     QFormLayout *formLayout = new QFormLayout;
 

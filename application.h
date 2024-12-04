@@ -4,6 +4,7 @@
 #include "usermanager.h"
 #include "screenmanager.h"
 #include "measurementManager.h"
+#include "battery.h"
 #include "mainwindow.h"
 #include <QStackedWidget>
 class Application

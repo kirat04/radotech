@@ -1,8 +1,10 @@
 #include "editform.h"
 #include <QMessageBox>
-
+#include  <QProgressBar>
 EditForm::EditForm(QVector<UserProfile> &profiles, int index, QWidget *parent)
     : QWidget(parent), profilesEdit(profiles), profileIndex(index) {
+
+
 
     QVBoxLayout *layout = new QVBoxLayout(this);
 

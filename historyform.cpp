@@ -1,7 +1,7 @@
 #include "historyform.h"
 #include <QHeaderView>
 #include <QMessageBox>
-
+#include  <QProgressBar>
 HistoryForm::HistoryForm(QWidget *parent)
     : QWidget(parent),
     storageManager(StorageManager::getInstance()) {
@@ -10,6 +10,8 @@ HistoryForm::HistoryForm(QWidget *parent)
 }
 
 void HistoryForm::setupUI() {
+
+
     mainLayout = new QVBoxLayout(this);
 
     // Data Table
