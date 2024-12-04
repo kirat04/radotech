@@ -16,6 +16,9 @@ void Battery::deplete(int amount){
         lowPowerState = true;
         emit sendLowPower();
     }
+    if (percentCharged<=5) {
+        emit sendShutdown();
+    }
 emit sendCurrentAmount(percentCharged);
 }
 
@@ -27,5 +30,10 @@ int Battery::getCurrentAmount(){
 bool Battery::isLowPower()
 {
     return (percentCharged < 20);
+}
+
+bool Battery::isCritical()
+{
+    return (percentCharged <= 5);
 }
 
