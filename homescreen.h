@@ -21,6 +21,7 @@ signals:
     void historyClicked();
     void specialistClicked();
     void createProfClicked();
+    void chargeClicked();
 
 public slots:
    void setBattery(int level);
