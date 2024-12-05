@@ -89,6 +89,7 @@ void MeasurementForm::startDeviceContact() {
 
 void MeasurementForm::endDeviceContact() {
     measurementManager->captureMeasurement();
+    measurementManager->captureMeasurement();
     nextBtn->setEnabled(true);
     isDeviceContacting = false;
     contactStateLabel->setText("Device Contact State: Not Contacting");
