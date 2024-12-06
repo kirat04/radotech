@@ -3,6 +3,12 @@
 ## Overview
 The RaDoTech Health Monitoring System is a comprehensive health monitoring solution that combines hardware devices with a mobile application to provide users with detailed health metrics based on Ryodoraku technology. The system enables users to take measurements from specific body points and receive detailed health analysis and recommendations.
 
+## Team Members:
+- Shri Vaibhav Mahesh Kumar
+- David Hare
+- Alhoussine Khallil
+- Prabhkirat Dhaliwal
+
 ## Table of Contents
 - [Features](#features)
 
@@ -31,4 +37,6 @@ The RaDoTech Health Monitoring System is a comprehensive health monitoring solut
   - Actionable recommendations
   - Progress tracking
   - Health optimization suggestions
+ 
+  
 
