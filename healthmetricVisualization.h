@@ -13,7 +13,7 @@ class HealthMetricVisualization : public QWidget {
 public:
     explicit HealthMetricVisualization(const QVector<int>& measurements, QWidget *parent = nullptr);
 
-    void setThreshold(int upperwarningThreshold, int uppercriticalThreshold, int lowerwarningThreshold, int lowercriticalThreshold;);
+    void setThreshold(int upperwarningThreshold, int uppercriticalThreshold, int lowerwarningThreshold, int lowercriticalThreshold);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
