@@ -8,13 +8,17 @@ HealthMetricVisualization::HealthMetricVisualization(const QVector<int>& measure
     : QWidget(parent),
       measurements(measurements),
       primaryColor(QColor(52, 152, 219)),  // Flat Blue
-      warningThreshold(100),
-      criticalThreshold(130) {}
+      upperwarningThreshold(70),
+      uppercriticalThreshold(100),
+      lowerwarningThreshold(40), 
+      lowercriticalThreshold(20) {}
 
 
-void HealthMetricVisualization::setThreshold(int warning, int critical) {
-    warningThreshold = warning;
-    criticalThreshold = critical;
+void HealthMetricVisualization::setThreshold(int upperwarning, int uppercritical, int lowerwarning, int lowercritical) {
+    upperwarningThreshold = upperwarning;
+    uppercriticalThreshold = uppercritical;
+    lowerwarningThreshold = lowerwarning;
+    lowercriticalThreshold) = lowercritical;
     update();
 }
 int HealthMetricVisualization::getMaxMeasurement() const {
@@ -26,9 +30,9 @@ int HealthMetricVisualization::getMinMeasurement() const {
 }
 
 QColor HealthMetricVisualization::getColorForMeasurement(int measurement) const {
-    if (measurement >= criticalThreshold) {
+    if (measurement >= uppercriticalThreshold || measurement <= lowercriticalThreshold) {
         return QColor(231, 76, 60);  // Flat Red (Critical)
-    } else if (measurement >= warningThreshold) {
+    } else if (measurement >= upperwarningThreshold || measurement <= lowerwarningThreshold) {
         return QColor(241, 196, 15);  // Flat Yellow (Warning)
     } else {
         return QColor(46, 204, 113);  // Flat Green (Normal)
