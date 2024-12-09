@@ -18,7 +18,7 @@ void HealthMetricVisualization::setThreshold(int upperwarning, int uppercritical
     upperwarningThreshold = upperwarning;
     uppercriticalThreshold = uppercritical;
     lowerwarningThreshold = lowerwarning;
-    lowercriticalThreshold) = lowercritical;
+    lowercriticalThreshold = lowercritical;
     update();
 }
 int HealthMetricVisualization::getMaxMeasurement() const {
