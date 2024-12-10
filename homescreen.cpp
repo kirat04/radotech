@@ -21,7 +21,7 @@ HomeScreen::HomeScreen(const QVector<UserProfile> &profiles, QWidget *parent)
 
     QPushButton *measureNowBtn = new QPushButton("Measure Now", this);
     QPushButton *historyBtn = new QPushButton("History", this);
-    QPushButton *specialistBtn = new QPushButton("Specialist Reccomendation", this);
+    QPushButton *specialistBtn = new QPushButton("Specialist Recommendation", this);
     QPushButton *chargeBtn = new QPushButton("Charge Battery", this);
 
     connect(measureNowBtn, &QPushButton::clicked, this, &HomeScreen::measureNowClicked);
